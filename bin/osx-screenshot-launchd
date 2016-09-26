@@ -1,0 +1,13 @@
+#!/bin/sh
+script_dir=$(dirname $(cd $(dirname $0); pwd))
+image_root_dir=$script_dir/images
+
+date=$(date '+%Y%m%d%H%M%S')
+dir=$image_root_dir/${date:0:8}
+file=$date.jpg
+
+if [ ! -d "$dir" ]; then
+  mkdir $dir
+fi
+
+screencapture $dir/$file
